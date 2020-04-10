@@ -58,8 +58,7 @@ class Tile {
   }
 
   set state(state) {
-    console.log(state);
-    const possible_states = ["clear", "filled", "start", "end", "queued", "traversed"]
+    const possible_states = Object.keys(this.states);
     if (possible_states.includes(state)) {
       this.tile_state = state;
       this.rect.setAttributeNS(null, 'fill', this.color);
@@ -75,16 +74,25 @@ class Tile {
 
   get color() {
     var state = this.state;
+    return this.states[state];
+  }
+
+  get states() {
     var r = this.numToHex(this.r);
     const state_color = {
       "clear": "#"+r+r+r,
-      "filled": "#777",
+      "filled": "#BBB",
       "start": "#33AA33",
       "end": "#CC0000",
-      "queued": "#FF9900",
-      "traversed": "#0099CC"
+      "queued": "#996633",
+      "traversed": "#006699",
+      "path": "#EEAA00"
     }
-    return state_color[state];
+    return state_color;
+  }
+
+  get hash_key() {
+    return JSON.stringify({x: this.x, y: this.y});
   }
 
   numToHex(num) {

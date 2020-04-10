@@ -36,7 +36,6 @@ class Board {
         this.end_tile = new_tile;
         break;
       case 'paint':
-        console.log(new_tile.state);
         if (new_tile.state === 'clear') {
           new_tile.state = 'filled';
         }
@@ -78,7 +77,6 @@ class Board {
   setupListeners() {
     var board = this;
     this.svg.addEventListener('t_interaction_start', function(e) {
-      console.log("interaction start");
       board.interacting = true;
       const state_action = {
         'clear': 'paint',
