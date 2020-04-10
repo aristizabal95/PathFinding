@@ -86,7 +86,7 @@ class Tile {
       "end": "#CC0000",
       "queued": "#996633",
       "traversed": "#006699",
-      "path": "#EEAA00"
+      "path": "#FFCC00"
     }
     return state_color;
   }
