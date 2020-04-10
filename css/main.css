@@ -12,3 +12,15 @@ svg {
   height: 100%;
   width: 100%;
 }
+
+#fixed-menu {
+  position: fixed;
+  bottom: 0;
+  display:inline-block;
+  right: 0;
+}
+
+button {
+  font-size: 36px;
+  margin: 15px;
+}

@@ -58,7 +58,8 @@ class Tile {
   }
 
   set state(state) {
-    const possible_states = ["clear", "filled", "start", "end"]
+    console.log(state);
+    const possible_states = ["clear", "filled", "start", "end", "queued", "traversed"]
     if (possible_states.includes(state)) {
       this.tile_state = state;
       this.rect.setAttributeNS(null, 'fill', this.color);
@@ -79,7 +80,9 @@ class Tile {
       "clear": "#"+r+r+r,
       "filled": "#777",
       "start": "#33AA33",
-      "end": "#DD7711"
+      "end": "#CC0000",
+      "queued": "#FF9900",
+      "traversed": "#0099CC"
     }
     return state_color[state];
   }
