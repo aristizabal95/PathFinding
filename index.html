@@ -4,8 +4,11 @@
 
 layout: default
 ---
-<div id="board-container">
-</div>
 <div id="fixed-menu">
-  <button onclick="BFS(board)">Start!</button>
+  <button id="toggle-menu" onclick="toggleMenu();"><i id="toggle-icon" class="fas fa-chevron-left"></i></button>
+  <button onclick="BFS(board);" class="internal">Start!</button>
+  <button onclick="board.clearSearch();" class="internal">Clear search</button>
+  <button onclick="board.clearWalls();" class="internal">Clear walls</button>
+</div>
+<div id="board-container">
 </div>

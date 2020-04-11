@@ -134,8 +134,17 @@ class Board {
 
   clearWalls() {
     var walls = this.matrix.flat().filter((tile) => tile.state === 'filled');
-    console.log(walls);
     walls.forEach(function(tile) {
+      tile.state = 'clear';
+    });
+  }
+
+  clearSearch() {
+    var searched = this.matrix.flat().filter((tile) =>
+      tile.state === 'traversed' ||
+      tile.state === 'queued' ||
+      tile.state === 'path');
+    searched.forEach(function(tile) {
       tile.state = 'clear';
     });
   }
