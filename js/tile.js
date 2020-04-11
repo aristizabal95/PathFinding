@@ -19,9 +19,7 @@ class Tile {
     rect.setAttributeNS(null, 'y', this.y);
     rect.setAttributeNS(null, 'width', this.size);
     rect.setAttributeNS(null, 'height', this.size);
-    rect.setAttributeNS(null, 'fill', this.color);
-    rect.setAttributeNS(null, 'stroke-width', 1);
-    rect.setAttributeNS(null, 'stroke', '#444');
+    rect.setAttributeNS(null, 'class', this.state);
     return rect;
   }
 
@@ -58,10 +56,9 @@ class Tile {
   }
 
   set state(state) {
-    const possible_states = Object.keys(this.states);
-    if (possible_states.includes(state)) {
+    if (this.states.includes(state)) {
       this.tile_state = state;
-      this.rect.setAttributeNS(null, 'fill', this.color);
+      this.rect.setAttributeNS(null, 'class', this.tile_state);
     } else {
       this.tile_state = "clear";
     }
@@ -78,17 +75,17 @@ class Tile {
   }
 
   get states() {
-    var r = this.numToHex(this.r);
-    const state_color = {
-      "clear": "#"+r+r+r,
-      "filled": "#BBB",
-      "start": "#33AA33",
-      "end": "#CC0000",
-      "queued": "#996633",
-      "traversed": "#006699",
-      "path": "#FFCC00"
-    }
-    return state_color;
+    // var r = this.numToHex(this.r);
+    const states = [
+      "clear",
+      "filled",
+      "start",
+      "end",
+      "queued",
+      "traversed",
+      "path"
+    ]
+    return states
   }
 
   get hash_key() {

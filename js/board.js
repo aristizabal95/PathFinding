@@ -131,4 +131,12 @@ class Board {
     }
     return [row, col];
   }
+
+  clearWalls() {
+    var walls = this.matrix.flat().filter((tile) => tile.state === 'filled');
+    console.log(walls);
+    walls.forEach(function(tile) {
+      tile.state = 'clear';
+    });
+  }
 }

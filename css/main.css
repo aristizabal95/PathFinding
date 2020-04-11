@@ -24,3 +24,52 @@ button {
   font-size: 36px;
   margin: 15px;
 }
+
+rect {
+  stroke: #ADAFB9;
+  stroke-width: 1;
+}
+
+rect.clear {
+  fill: #CDCFD9;
+}
+
+rect.filled {
+  fill: #727277;
+}
+
+rect.start {
+  fill: #4fa476;
+}
+
+rect.end {
+  fill: #f3392c;
+}
+
+rect.queued {
+  fill: #6e91bd;
+}
+
+rect.traversed {
+  fill: #95c3fd;
+}
+
+rect.path {
+  fill: #ECC46B;
+}
+
+rect.traversed, rect.filled {
+  transition: fill .5s;
+}
+
+rect.path {
+  transition: fill 1s;
+}
+
+rect.clear, rect.queued {
+  transition: fill .15s;
+}
+
+rect.start, rect.end {
+  transition: fill .02s;
+}
