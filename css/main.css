@@ -97,10 +97,10 @@ rect.path {
   transition: fill 1s;
 }
 
-rect.clear, rect.queued {
+rect.clear {
   transition: fill .15s;
 }
 
-rect.start, rect.end {
+rect.start, rect.end, rect.queued {
   transition: fill .02s;
 }

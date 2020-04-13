@@ -148,4 +148,39 @@ class Board {
       tile.state = 'clear';
     });
   }
+
+  connectedTiles(tile, diagonal=true) {
+    var r_moves;
+    var c_moves;
+    if (diagonal) {
+      r_moves = [-1,-1,-1,0,0,1,1,1];
+      c_moves = [-1,0,1,-1,1,-1,0,1];
+    } else {
+      r_moves = [-1,0,0,1];
+      c_moves = [0,-1,1,0];
+    }
+
+    var tile_pos = this.tilePosition(tile);
+    var connected = [];
+
+    for (const i of Array(r_moves.length).keys()) {
+      var r_idx =  tile_pos[0] + r_moves[i];
+      var c_idx = tile_pos[1] + c_moves[i];
+
+      if (r_idx < 0 || c_idx < 0 || r_idx >= this.shape[0] || c_idx >= this.shape[1]) {
+        // Ignore out of bound tiles
+        continue;
+      }
+
+      const target = board.matrix[r_idx][c_idx];
+      const adjacent_tiles = [board.matrix[tile_pos[0]][c_idx], board.matrix[r_idx][tile_pos[1]]];
+      const adjacent_filled = adjacent_tiles.map((t) => t.state === 'filled');
+      const blocked = adjacent_filled.reduce((a,b) => a*b);
+      if (target.state == 'filled' || blocked) {
+        continue;
+      }
+      connected.push(target);
+    }
+    return connected;
+  }
 }

@@ -99,4 +99,11 @@ class Tile {
     }
     return hex;
   }
+
+  distance(tile) {
+    const delta_x = Math.abs(this.x - tile.x);
+    const delta_y = Math.abs(this.y - tile.y);
+
+    return Math.sqrt(delta_x**2 + delta_y**2);
+  }
 }
