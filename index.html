@@ -6,7 +6,14 @@ layout: default
 ---
 <div id="fixed-menu">
   <button id="toggle-menu" onclick="toggleMenu();"><i id="toggle-icon" class="fas fa-chevron-left"></i></button>
-  <button onclick="BFS(board);" class="internal">Start!</button>
+  <label for="algorithms">Choose an Algorithm:</label>
+  <div class="dropdown">
+    <select id="algorithms">
+      <option value="BFS">Breadth-First Search</option>
+      <option value="Dijkstra">Dijkstra</option>
+    </select>
+  </div>
+  <button onclick="algorithm(board, config);" class="internal">Start!</button>
   <button onclick="board.clearSearch();" class="internal">Clear search</button>
   <button onclick="board.clearWalls();" class="internal">Clear walls</button>
 </div>

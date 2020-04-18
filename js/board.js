@@ -153,8 +153,8 @@ class Board {
     var r_moves;
     var c_moves;
     if (diagonal) {
-      r_moves = [-1,-1,-1,0,0,1,1,1];
-      c_moves = [-1,0,1,-1,1,-1,0,1];
+      r_moves = [-1,0,0,1,-1,-1,1,1];
+      c_moves = [ 0,-1,1,0,-1,1,-1,1];
     } else {
       r_moves = [-1,0,0,1];
       c_moves = [0,-1,1,0];

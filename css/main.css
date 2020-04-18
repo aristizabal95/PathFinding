@@ -1,6 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 svg {
@@ -16,6 +17,7 @@ svg {
 #fixed-menu {
   position: fixed;
   display:inline-block;
+  min-width: 300px;
   padding: 15px;
   background:rgba(240,241,244,0.8);
   backdrop-filter: blur(20px);
@@ -40,8 +42,65 @@ svg {
   padding: 15px 5px;
 }
 
+label {
+  display: block;
+  font-size: 18px;
+  margin: 2px;
+}
+
+.dropdown select{
+  background:transparent;
+  font-size:1.2em;
+  font-weight:400;
+  color:#fff;
+  line-height: 1;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  /*Hides the default arrows for Selects*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-overflow: '';
+  position: relative;
+}
+
+
+.dropdown{
+  left: 2px;
+  overflow: hidden;
+  background: no-repeat right DodgerBlue;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown:before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+}
+
+
+select > option {
+  background: #D3D3D3;
+  color: black;
+}
+
 button {
   font-size: 24px;
+  font-family: inherit;
 }
 
 @media only screen and (max-width:515px) {
