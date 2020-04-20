@@ -100,7 +100,13 @@ class Tile {
     return hex;
   }
 
-  distance(tile) {
+  distance(tile, heuristic) {
+    // takes as an input the second tile and a heuristic.
+    // if no heuristic is given, defaults to euclidean.
+
+    if (heuristic) {
+      return heuristic(this, tile);
+    }
     const delta_x = Math.abs(this.x - tile.x);
     const delta_y = Math.abs(this.y - tile.y);
 

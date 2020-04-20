@@ -1,3 +1,18 @@
+algorithms_struct = {
+  "BFS": {
+    function: BFS,
+    config: {
+      diagonal: false,
+    }
+  },
+  "Dijkstra": {
+    function: dijkstra,
+    config: {
+      diagonal: true,
+      heuristic: euclidean,
+    }
+  }
+};
 
 function BFS(board, config) {
   /* Breadth-first Search is an algorithm for traversing a graph.         *
@@ -173,7 +188,7 @@ function dijkstra_step(board, open_nodes, closed_nodes, dist_map, config) {
       continue;
     }
 
-    dist = current_node.distance(next_node) + current_cost.dist;
+    dist = current_node.distance(next_node, config.heuristic) + current_cost.dist;
 
     // Now that we know the distance from the starting node, let's see if
     // this is a better path. If so, update our maps
@@ -200,4 +215,32 @@ function dijkstra_step(board, open_nodes, closed_nodes, dist_map, config) {
     if (next_node.state != 'start' && next_node.state != 'end') next_node.state = 'queued';
   }
   return [open_nodes, closed_nodes, dist_map];
+}
+
+///////// HEURISTICS ///////////
+const heuristics = {
+  "euclidean": euclidean,
+  "manhattan": manhattan,
+  "chebyshev": chebyshev,
+}
+
+function euclidean(node1, node2) {
+  const delta_x = Math.abs(node1.x - node2.x);
+  const delta_y = Math.abs(node1.y - node2.y);
+
+  return Math.sqrt(delta_x**2 + delta_y**2);
+}
+
+function manhattan(node1, node2) {
+  const delta_x = Math.abs(node1.x - node2.x);
+  const delta_y = Math.abs(node1.y - node2.y);
+
+  return delta_x + delta_y;
+}
+
+function chebyshev(node1, node2) {
+  const delta_x = Math.abs(node1.x - node2.x);
+  const delta_y = Math.abs(node1.y - node2.y);
+
+  return Math.max(delta_x,delta_y);
 }
