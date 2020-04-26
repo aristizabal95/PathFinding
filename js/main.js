@@ -6,4 +6,5 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var tile_size = 32;
   board = new Board("board", w, h, tile_size);
   board_parent.appendChild(board.element);
+  setupAlgorithmConfig();
 });

@@ -42,6 +42,16 @@ svg {
   padding: 15px 5px;
 }
 
+#config {
+  padding: 0 15px;
+  margin: 5px;
+  border-left: 1px solid rgba(0,0,0,0.2);
+}
+
+#config h3 {
+  margin: 0;
+}
+
 label {
   display: block;
   font-size: 18px;
